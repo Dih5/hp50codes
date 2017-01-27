@@ -1,0 +1,73 @@
+%%HP: T(1)A(R)F(,);
+DIR
+  ECL2EQA
+  ´ ç b l e
+    ´ b SIN e COS * b
+COS l SIN e SIN * * +
+ASIN DUP COS DUP b
+COS l COS * SWAP /
+SWAP b COS l SIN e
+COS * * b SIN e SIN *
+- SWAP / XY2A
+    ª
+  ª
+  EQA2ECL
+  ´ ç d a e
+    ´ d SIN e COS * d
+COS a SIN e SIN * * -
+ASIN DUP COS DUP d
+COS a COS * SWAP /
+SWAP d COS a SIN e
+COS * * d SIN e SIN *
++ SWAP / XY2A
+    ª
+  ª
+  XY2A
+  ´ ç x y
+    ´ x y i * + ARG
+    ª
+  ª
+  EQH2HOR
+  ´ ç d h p
+    ´ d COS h COS p
+COS * * d SIN p SIN *
++ ACOS DUP SIN DUP d
+COS h SIN * SWAP /
+SWAP d COS h COS p
+SIN * * d SIN p COS *
+- SWAP / SWAP XY2A
+    ª
+  ª
+  HOR2EQH
+  ´ ç z a p
+    ´ z COS p SIN * z
+SIN a COS p COS * * -
+ASIN DUP COS DUP z
+SIN a SIN * SWAP / z
+SIN a COS p SIN * * z
+COS p COS * + SWAP /
+SWAP XY2A
+    ª
+  ª
+  TIM2R
+  ´ 60 / + 60 / + 24
+/ 360 *
+  ª
+  R2TIME
+  ´ 360 / 24 * ç x
+    ´ x FLOOR x 1 MOD
+60 * DUP FLOOR SWAP 1
+MOD 60 *
+    ª
+  ª
+  R2GEO
+  ´ ç x
+    ´ x FLOOR x 1 MOD
+60 * DUP FLOOR SWAP 1
+MOD 60 *
+    ª
+  ª
+  GEO2R
+  ´ 60 / + 60 / +
+  ª
+END
