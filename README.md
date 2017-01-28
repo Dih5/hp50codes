@@ -12,6 +12,9 @@ Includes some formulae for astronomical coordinate conversion. Angles are (suppo
 Calculator must be set in degrees for some of them to work.
 Order convention is the same as in the textbook I used.
 
+## markov
+Some programs related to discrete-time Markov chains.
+
 # Notes on connectivity
 Install ckermit
 ```

@@ -1,0 +1,105 @@
+%%HP: T(1)A(R)F(.);
+DIR
+  AID
+"Utilities for discrete Markov Chains
+Dih5
+*****
+Magnitudes:
+P: Transition matrix
+F: Hitting probability matrix (return in diagonal)
+E: Mean hitting time matrix (return in diagonal, assuming fjj=1)
+Fj: j-th column of F
+*****
+Additional notes:
+Distribution of number of visits:
+P_i(V_j=0) = 1 - fij
+P_i(V_j=m) = fij(fjj)^(m-1)(1-fjj) [m!=0]
+<P_i(V_j)> = fij/(1-fjj)
+*****
+Functions included:
+X2Y: Function transforming X to Y
+P2FjSys: Definition of the system to find Fj
+DIM1: Number of rows in a Matrix
+*****
+TODO: Clean unnecesary DRPCOL and DRPROW"
+  P2E
+  «  p
+    « 1 p SIZE 1 GET
+Q
+      FOR k p k P2Ej
+COL DROP
+      NEXT p SIZE 1
+GET Q COL
+    »
+  »
+  P2Ej
+  «  p n
+    « p n 1 LIST
+DRPROW n 1 LIST
+DRPCOL DUP DUP DIAG
+      «  x 'x+1'
+      » MAP SWAP SIZE
+DIAG SWAP - 1 p DIM1
+1 -
+      FOR k 1
+      NEXT p DIM1 1 -
+ARRY 1 COL SWAP /
+DUP p n 1 LIST
+DRPCOL ROW LIST n
+GET 1 ROW SWAP * 1 1
+ARRY 1 ROW + n ROW+
+    »
+  »
+  P2F
+  «  p
+    « 1 p SIZE 1 GET
+Q
+      FOR k p k P2Fj
+COL DROP
+      NEXT p SIZE 1
+GET Q COL
+    »
+  »
+  P2Fj
+  «  p n
+    « p n 1 LIST
+DRPROW n 1 LIST
+DRPCOL DUP DUP DIAG
+      «  x 'x+1'
+      » MAP SWAP SIZE
+DIAG SWAP - p COL
+LIST n GET 1 COL n
+1 LIST DRPROW SWAP /
+DUP p n 1 LIST
+DRPCOL ROW LIST n
+GET 1 ROW SWAP * p {
+n n } GET 1 ARRY 1
+ROW + n ROW+
+    »
+  »
+  P2FjSys
+  «  p n
+    « p n 1 LIST
+DRPROW n 1 LIST
+DRPCOL DUP DUP DIAG
+      «  x 'x+1'
+      » MAP SWAP SIZE
+DIAG SWAP - p COL
+LIST n GET 1 COL n
+1 LIST DRPROW
+    »
+  »
+  DIM1
+  « SIZE 1 GET Q
+  »
+  DRPROW
+  « SORT REVLIST 1
+    « ROW- DROP
+    » DOLIST
+  »
+  DRPCOL
+  « SORT REVLIST 1
+    « COL- DROP
+    » DOLIST
+  »
+END
