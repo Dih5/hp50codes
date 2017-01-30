@@ -18,10 +18,27 @@ P_i(V_j=m) = fij(fjj)^(m-1)(1-fjj) [m!=0]
 *****
 Functions included:
 X2Y: Function transforming X to Y
+P2COND: Find the conditioned transition matrix by the n-th element
 P2FjSys: Definition of the system to find Fj
 DIM1: Number of rows in a Matrix
+DRPSTA: Drop a state from a Matrix (row and col)
 *****
 TODO: Clean unnecesary DRPCOL and DRPROW"
+  P2CON
+  ´ ç p n
+    ´ p DUP n P2Fj
+DUP DIM1 ç p f d
+      ´ p 1 d
+        FOR i 1 d
+          FOR j DUP {
+i j } GET f j GET f i
+GET / * { i j } SWAP
+PUT
+          NEXT
+        NEXT
+      ª
+    ª
+  ª
   P2E
   ´ ç p
     ´ 1 p SIZE 1 GET
@@ -109,6 +126,13 @@ DIAGç SWAP - p çCOL
   ª
   DIM1
   ´ SIZE 1 GET çQ
+  ª
+  DRPSTA
+  ´ ç p n
+    ´ p n 1 çLIST
+DRPROW n 1 çLIST
+DRPCOL
+    ª
   ª
   DRPROW
   ´ SORT REVLIST 1
