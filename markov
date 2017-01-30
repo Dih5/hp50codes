@@ -37,7 +37,13 @@ GET Q COL
     « p n 1 LIST
 DRPROW n 1 LIST
 DRPCOL DUP DUP DIAG
-      «  x 'x+1'
+      «  x
+        «
+          IF x 1 ==
+          THEN x 1 +
+          ELSE 1
+          END
+        »
       » MAP SWAP SIZE
 DIAG SWAP - 1 p DIM1
 1 -
@@ -65,7 +71,13 @@ GET Q COL
     « p n 1 LIST
 DRPROW n 1 LIST
 DRPCOL DUP DUP DIAG
-      «  x 'x+1'
+      «  x
+        «
+          IF x 1 ==
+          THEN x 1 +
+          ELSE 1
+          END
+        »
       » MAP SWAP SIZE
 DIAG SWAP - p COL
 LIST n GET 1 COL n
@@ -82,7 +94,13 @@ ROW + n ROW+
     « p n 1 LIST
 DRPROW n 1 LIST
 DRPCOL DUP DUP DIAG
-      «  x 'x+1'
+      «  x
+        «
+          IF x 1 ==
+          THEN x 1 +
+          ELSE 1
+          END
+        »
       » MAP SWAP SIZE
 DIAG SWAP - p COL
 LIST n GET 1 COL n
