@@ -30,4 +30,4 @@ robust
 This can also be set in a .kermrc file.
 
 - To send a file to the calculator LSHIFT+LEFT PAD to put it in server mode and then `send foo`.
-- To recieve from the calculator set the computer in server mode by running `server` and then send the file with the SEND command or from the APPS menu.
+- To receive from the calculator set the computer in server mode by running `server` and then send the file with the SEND command or from the APPS menu.
