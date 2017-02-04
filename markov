@@ -8,13 +8,14 @@ Magnitudes:
 P: Transition matrix
 F: Hitting probability matrix (return in diagonal)
 E: Mean hitting time matrix (return in diagonal, assuming fjj=1)
-Fj: j-th column of F
+N: Expected number of hittings matrix
+Xj: j-th column of X
 *****
 Additional notes:
 Distribution of number of visits:
 P_i(V_j=0) = 1 - fij
 P_i(V_j=m) = fij(fjj)^(m-1)(1-fjj) [m!=0]
-<P_i(V_j)> = fij/(1-fjj)
+<P_i(V_j)> = N_ij = fij/(1-fjj)
 *****
 Functions included:
 X2Y: Function transforming X to Y
@@ -24,6 +25,23 @@ DIM1: Number of rows in a Matrix
 DRPSTA: Drop a state from a Matrix (row and col)
 *****
 TODO: Clean unnecesary DRPCOL and DRPROW"
+  Fj2Nj
+  ´ ç fj j
+    ´ fj DUP DUP DIM1
+SWAP j GET ç fj n fjj
+      ´ 1 n
+        FOR k fj k
+GET 1 fjj - /
+        NEXT n çLIST
+      ª
+    ª
+  ª
+  STATIO
+  ´ TRAN DUP DIM1 IDN
+- KER 1 GET DUP OBJç
+1 GET çLIST ÖLIST
+EXPAND /
+  ª
   P2CON
   ´ ç p n
     ´ p DUP n P2Fj
