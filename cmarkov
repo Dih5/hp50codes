@@ -1,7 +1,7 @@
 %%HP: T(1)A(R)F(.);
 DIR
   AID
-"Utilities for continous Markov Chains
+"Utilities for continuous Markov Chains
 Dih5
 *****
 Magnitudes:
@@ -30,7 +30,7 @@ NEG / k 0 PUT
 DUP OBJç 1 GET çLIST
 ÖLIST EXPAND /
   ª
-END
   DIM1
   ´ SIZE 1 GET çQ
   ª
+END
