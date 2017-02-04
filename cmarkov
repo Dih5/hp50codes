@@ -11,7 +11,7 @@ Xj: j-th column of X
 *****
 Functions included:
 X2Y: Function transforming X to Y
-STATIO: Find the stationary distribution(s) from Q
+STATIO: Find a base of stationary distributions from Q
 DIM1: Number of rows in a Matrix"
   Q2J
   «  q
@@ -26,9 +26,10 @@ NEG / k 0 PUT
     »
   »
   STATIO
-  « TRAN KER 1 GET
-DUP OBJ 1 GET LIST
-…LIST EXPAND /
+  « TRAN KER 1
+    « DUP OBJ 1 GET
+LIST …LIST EXPAND /
+    » DOLIST
   »
   DIM1
   « SIZE 1 GET Q

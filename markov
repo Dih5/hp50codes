@@ -20,11 +20,22 @@ P_i(V_j=m) = fij(fjj)^(m-1)(1-fjj) [m!=0]
 Functions included:
 X2Y: Function transforming X to Y
 P2COND: Find the conditioned transition matrix by the n-th element
+STATIO: Find a base of stationary distributions from P
 P2FjSys: Definition of the system to find Fj
 DIM1: Number of rows in a Matrix
 DRPSTA: Drop a state from a Matrix (row and col)
 *****
 TODO: Clean unnecesary DRPCOL and DRPROW"
+P2N
+  ´ ç p
+    ´ 1 p SIZE 1 GET
+çQ
+      FOR k p k P2Fj
+k Fj2Nj çCOL DROP
+      NEXT p SIZE 1
+GET çQ COLç
+    ª
+  ª
   Fj2Nj
   ´ ç fj j
     ´ fj DUP DUP DIM1
@@ -32,15 +43,17 @@ SWAP j GET ç fj n fjj
       ´ 1 n
         FOR k fj k
 GET 1 fjj - /
-        NEXT n çLIST
+        NEXT n çARRY
+1 COLç
       ª
     ª
   ª
   STATIO
   ´ TRAN DUP DIM1 IDN
-- KER 1 GET DUP OBJç
-1 GET çLIST ÖLIST
-EXPAND /
+- KER 1
+    ´ DUP OBJç 1 GET
+çLIST ÖLIST EXPAND /
+    ª DOLIST
   ª
   P2CON
   ´ ç p n
