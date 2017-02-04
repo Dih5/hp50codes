@@ -1,0 +1,36 @@
+%%HP: T(1)A(R)F(.);
+DIR
+  AID
+"Utilities for continous Markov Chains
+Dih5
+*****
+Magnitudes:
+Q: Infinitesimal matrix
+J: Jump matrix
+Xj: j-th column of X
+*****
+Functions included:
+X2Y: Function transforming X to Y
+STATIO: Find the stationary distribution(s) from Q
+DIM1: Number of rows in a Matrix"
+  Q2J
+  ´ ç q
+    ´ q DUP DIM1 ç q
+d
+      ´ 1 d
+        FOR k q çROW
+çLIST k GET DUP k GET
+NEG / k 0 PUT
+        NEXT d ROWç
+      ª
+    ª
+  ª
+  STATIO
+  ´ TRAN KER 1 GET
+DUP OBJç 1 GET çLIST
+ÖLIST EXPAND /
+  ª
+END
+  DIM1
+  ´ SIZE 1 GET çQ
+  ª
