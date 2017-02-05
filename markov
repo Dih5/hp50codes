@@ -26,7 +26,7 @@ DIM1: Number of rows in a Matrix
 DRPSTA: Drop a state from a Matrix (row and col)
 *****
 TODO: Clean unnecesary DRPCOL and DRPROW"
-P2N
+  P2N
   «  p
     « 1 p SIZE 1 GET
 Q
