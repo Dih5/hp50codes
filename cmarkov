@@ -7,11 +7,14 @@ Dih5
 Magnitudes:
 Q: Infinitesimal matrix
 J: Jump matrix
+Jb: Modified jump matrix with 0 row in absorbing state. 
 Xj: j-th column of X
 *****
 Functions included:
 X2Y: Function transforming X to Y
 STATIO: Find a base of stationary distributions from Q
+PROF: Find the profit given a Q matrix and a LIST of profit per time in a state
+PROFV: Find the profit given a Q matrix and a LIST of profit per visit to a state
 DIM1: Number of rows in a Matrix"
   Q2J
   ´ ç q
@@ -39,6 +42,49 @@ PUT
     ´ DUP OBJç 1 GET
 çLIST ÖLIST EXPAND /
     ª DOLIST
+  ª
+  PROFV
+  ´ ç q fi
+    ´ q DIM1 IDN q
+Q2Jb - fi OBJç çARRY
+    ª SWAP /
+  ª
+  PROF
+  ´ ç q fi
+    ´ q DIM1 IDN q
+Q2Jb - q çDIAG OBJç 1
+GET çLIST fi 2
+      ´ DUP
+        IF 0 ==
+        THEN DROP
+DROP 0
+        ELSE SWAP NEG
+/
+        END
+      ª DOLIST OBJç
+çARRY SWAP /
+    ª
+  ª
+  Q2Jb
+  ´ ç q
+    ´ q DUP DIM1 ç q
+d
+      ´ 1 d
+        FOR k q çROW
+çLIST k GET DUP k GET
+NEG DUP
+          IF 0 ==
+          THEN DROP
+DIM1 1 SWAP
+            FOR k2 0
+            NEXT q
+DIM1 çARRY
+          ELSE / k 0
+PUT
+          END
+        NEXT d ROWç
+      ª
+    ª
   ª
   DIM1
   ´ SIZE 1 GET çQ
