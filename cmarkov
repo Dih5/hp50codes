@@ -20,7 +20,16 @@ d
       ´ 1 d
         FOR k q çROW
 çLIST k GET DUP k GET
-NEG / k 0 PUT
+NEG DUP
+          IF 0 ==
+          THEN DROP
+DIM1 1 SWAP
+            FOR k2 0
+            NEXT q
+DIM1 çARRY k 1 PUT
+          ELSE / k 0
+PUT
+          END
         NEXT d ROWç
       ª
     ª
