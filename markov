@@ -21,7 +21,6 @@ Functions included:
 X2Y: Function transforming X to Y
 P2COND: Find the conditioned transition matrix by the n-th element
 STATIO: Find a base of stationary distributions from P
-P2FjSys: Definition of the system to find Fj
 DIM1: Number of rows in a Matrix
 DRPSTA: Drop a state from a Matrix (row and col)
 *****
@@ -135,24 +134,6 @@ DRPCOL çROW çLIST n
 GET 1 ROWç SWAP * p {
 n n } GET 1 çARRY 1
 ROWç + n ROW+
-    ª
-  ª
-  P2FjSys
-  ´ ç p n
-    ´ p n 1 çLIST
-DRPROW n 1 çLIST
-DRPCOL DUP DUP çDIAG
-      ´ ç x
-        ´
-          IF x 1 ==
-          THEN x 1 +
-          ELSE 1
-          END
-        ª
-      ª MAP SWAP SIZE
-DIAGç SWAP - p çCOL
-çLIST n GET 1 COLç n
-1 çLIST DRPROW
     ª
   ª
   DIM1
